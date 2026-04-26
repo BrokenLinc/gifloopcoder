@@ -1,0 +1,41 @@
+import { type SchedulerApi } from './core/Scheduler';
+import { type EncoderApi } from './encode/Encoder';
+import { type SpriteSheetApi } from './encode/SpriteSheet';
+import { type ColorApi } from './render/Color';
+import { type RenderListApi } from './render/RenderList';
+import type { GLCOptions, GLCStatusListener, InterpolationMode, StylesObject } from './types';
+export type { GLCOptions, GLCStatusListener, InterpolationApi, InterpolationMode, ShapeInstance, ShapeProps, ShapeType, StylesObject, } from './types';
+export { Color } from './render/Color';
+export interface GLC {
+    readonly canvas: HTMLCanvasElement;
+    readonly context: CanvasRenderingContext2D;
+    readonly color: ColorApi;
+    readonly styles: StylesObject;
+    readonly renderList: RenderListApi;
+    readonly scheduler: SchedulerApi;
+    readonly encoder: EncoderApi;
+    readonly spriteSheet: SpriteSheetApi;
+    w: number;
+    h: number;
+    onEnterFrame: ((t: number) => void) | null;
+    onExitFrame: ((t: number) => void) | null;
+    loop(): void;
+    playOnce(): void;
+    stop(): void;
+    toggleLoop(): void;
+    size(w: number, h: number): void;
+    reset(): void;
+    setDuration(value: number): void;
+    setFPS(value: number): void;
+    setMaxColors(value: number): void;
+    setMode(mode: InterpolationMode | string): void;
+    setEasing(value: boolean): void;
+    setQuality(value: number): void;
+    makeGif(): void;
+    makeSpriteSheet(confirmLarge?: (size: number) => boolean): void;
+    captureStill(): string;
+    setStatusListener(listener: GLCStatusListener | null): void;
+    destroy(): void;
+}
+export declare function createGLC(canvas: HTMLCanvasElement, opts?: GLCOptions): GLC;
+//# sourceMappingURL=index.d.ts.map

@@ -1,0 +1,15 @@
+node_modules
+dist
+build
+coverage
+.vitepress/cache
+.vitepress/dist
+playwright-report
+test-results
+pnpm-lock.yaml
+*.min.js
+
+docs/public
+docs/**/*.md
+examples/
+.cursor/

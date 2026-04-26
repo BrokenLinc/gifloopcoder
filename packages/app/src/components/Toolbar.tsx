@@ -1,5 +1,6 @@
 import { Divider, HStack, IconButton, Tooltip, useColorModeValue } from '@chakra-ui/react';
 import {
+  faBookOpen,
   faCamera,
   faFile,
   faFilm,
@@ -36,6 +37,7 @@ interface ToolButton {
 export function Toolbar({ glc, compile }: ToolbarProps) {
   const status = useGLCStore((s) => s.status);
   const setShowAbout = useGLCStore((s) => s.setShowAbout);
+  const setShowExamples = useGLCStore((s) => s.setShowExamples);
   const setError = useGLCStore((s) => s.setError);
   const setCode = useGLCStore((s) => s.setCode);
   const code = useGLCStore((s) => s.code);
@@ -96,6 +98,13 @@ export function Toolbar({ glc, compile }: ToolbarProps) {
       icon: faFolderOpen,
       onClick: openFile,
       testId: 'tb-open',
+    },
+    {
+      label: 'Examples',
+      shortcut: 'Ctrl+E',
+      icon: faBookOpen,
+      onClick: () => setShowExamples(true),
+      testId: 'tb-examples',
     },
     {
       label: 'Save',
@@ -171,6 +180,7 @@ export function Toolbar({ glc, compile }: ToolbarProps) {
         Enter: compile,
         n: newFile,
         o: openFile,
+        e: () => setShowExamples(true),
         s: saveFile,
         l: () => glc?.toggleLoop(),
         p: () => glc?.playOnce(),

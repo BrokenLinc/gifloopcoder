@@ -1,0 +1,44 @@
+{
+  "name": "gifloopcoder",
+  "version": "2.0.0",
+  "private": true,
+  "description": "HTML/JS library and studio app for coding looping gif animations.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --filter @glc/app dev",
+    "build": "pnpm -r --filter @glc/engine --filter @glc/app build",
+    "test": "pnpm -r --filter @glc/engine --filter @glc/app test",
+    "test:watch": "pnpm --filter @glc/engine test:watch",
+    "e2e": "pnpm --filter @glc/app e2e",
+    "e2e:install": "pnpm --filter @glc/app exec playwright install --with-deps chromium",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "pnpm -r typecheck",
+    "docs:dev": "pnpm --filter @glc/docs dev",
+    "docs:build": "pnpm --filter @glc/docs build",
+    "docs:preview": "pnpm --filter @glc/docs preview"
+  },
+  "devDependencies": {
+    "@types/node": "^20.16.5",
+    "@typescript-eslint/eslint-plugin": "^8.6.0",
+    "@typescript-eslint/parser": "^8.6.0",
+    "eslint": "^9.10.0",
+    "eslint-plugin-react": "^7.36.1",
+    "eslint-plugin-react-hooks": "^5.1.0-rc-fb9a90fa48-20240614",
+    "globals": "^15.9.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.6.0"
+  },
+  "volta": {
+    "node": "20.18.0",
+    "pnpm": "9.10.0"
+  },
+  "packageManager": "pnpm@9.10.0",
+  "engines": {
+    "node": ">=20.18.0",
+    "pnpm": ">=9"
+  }
+}

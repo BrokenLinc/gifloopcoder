@@ -1,0 +1,31 @@
+import type { Gradient } from '../types';
+export declare function rgba(r: number, g: number, b: number, a: number): string;
+export declare function rgb(r: number, g: number, b: number): string;
+export declare function randomRGB(min?: number, max?: number): string;
+export declare function gray(shade: number): string;
+export declare function randomGray(min?: number, max?: number): string;
+export declare function num(value: number): string;
+export declare function hsva(h: number, s: number, v: number, a: number): string;
+export declare function hsv(h: number, s: number, v: number): string;
+export declare function randomHSV(minH: number, maxH: number, minS: number, maxS: number, minV: number, maxV: number): string;
+export declare function animHSVA(startH: number, endH: number, startS: number, endS: number, startV: number, endV: number, startA: number, endA: number): (t: number) => string;
+export declare function animHSV(startH: number, endH: number, startS: number, endS: number, startV: number, endV: number): (t: number) => string;
+export declare function createLinearGradient(x0: number, y0: number, x1: number, y1: number): Gradient;
+export declare function createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): Gradient;
+export declare const Color: {
+    rgb: typeof rgb;
+    rgba: typeof rgba;
+    randomRGB: typeof randomRGB;
+    randomGray: typeof randomGray;
+    gray: typeof gray;
+    num: typeof num;
+    hsv: typeof hsv;
+    hsva: typeof hsva;
+    animHSV: typeof animHSV;
+    animHSVA: typeof animHSVA;
+    randomHSV: typeof randomHSV;
+    createLinearGradient: typeof createLinearGradient;
+    createRadialGradient: typeof createRadialGradient;
+};
+export type ColorApi = typeof Color;
+//# sourceMappingURL=Color.d.ts.map

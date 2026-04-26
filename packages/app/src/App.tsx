@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import { AboutModal } from './components/AboutModal';
 import { CanvasPanel } from './components/CanvasPanel';
 import { CodeEditor } from './components/CodeEditor';
+import { ExamplesModal } from './components/ExamplesModal';
 import { OutputModal } from './components/OutputModal';
 import { PropertiesPanel } from './components/PropertiesPanel';
 import { Splitter } from './components/Splitter';
@@ -41,6 +42,7 @@ export function App() {
       </Flex>
       <OutputModal />
       <AboutModal />
+      <ExamplesModal compile={compile} />
     </Flex>
   );
 }

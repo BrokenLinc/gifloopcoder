@@ -30,6 +30,7 @@ interface GLCState {
   output: OutputImage | null;
   showOutput: boolean;
   showAbout: boolean;
+  showExamples: boolean;
   splitPercent: number;
   errorMessage: string | null;
 
@@ -43,6 +44,7 @@ interface GLCState {
   setOutput(o: OutputImage | null): void;
   setShowOutput(v: boolean): void;
   setShowAbout(v: boolean): void;
+  setShowExamples(v: boolean): void;
   setSplitPercent(p: number): void;
   setError(message: string | null): void;
   syncFromGLC(glc: GLC): void;
@@ -59,6 +61,7 @@ export const useGLCStore = create<GLCState>((set) => ({
   output: null,
   showOutput: false,
   showAbout: false,
+  showExamples: false,
   splitPercent: 0.45,
   errorMessage: null,
   setCode(code, persist = true) {
@@ -93,6 +96,9 @@ export const useGLCStore = create<GLCState>((set) => ({
   },
   setShowAbout(showAbout) {
     set({ showAbout });
+  },
+  setShowExamples(showExamples) {
+    set({ showExamples });
   },
   setSplitPercent(splitPercent) {
     set({ splitPercent: Math.max(0.15, Math.min(0.85, splitPercent)) });

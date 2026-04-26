@@ -77,7 +77,13 @@ export function ExamplesModal({ compile }: ExamplesModalProps) {
   }
 
   return (
-    <Modal isOpen={showExamples} onClose={handleClose} size="4xl" scrollBehavior="inside" isCentered>
+    <Modal
+      isOpen={showExamples}
+      onClose={handleClose}
+      size="4xl"
+      scrollBehavior="inside"
+      isCentered
+    >
       <ModalOverlay />
       <ModalContent data-testid="examples-modal" maxH="80vh">
         <ModalHeader>Load example</ModalHeader>

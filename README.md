@@ -1,6 +1,6 @@
 # GIF Loop Coder (GLC)
 
-Code looping animations in JavaScript and export them as GIFs, sprite sheets, or single-frame stills. 
+Code looping animations in JavaScript and export them as GIFs, sprite sheets, or single-frame stills.
 
 > This is a modern refactor of the brilliant [bit101](https://codeberg.org/bit101)'s original gifloopcoder project, done mostly with Opus 4.7. I've left the Cursor Plan for this refactor in the repo for posterity.
 

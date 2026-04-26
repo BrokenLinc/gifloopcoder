@@ -18,6 +18,5 @@ test-results/
 !.env.example
 
 .idea/
-.vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json

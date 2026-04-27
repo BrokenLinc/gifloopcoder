@@ -12,7 +12,7 @@ GLC is split into two pieces:
 - **`@glc/app`** — a Vite + React 18 + Chakra UI 2 "studio" that wraps the
   engine with a CodeMirror editor, scrubber, and export modals.
 
-[Documentation](https://brokenlinc.github.io/gifloopcoder/) is published as a VitePress site to GitHub Pages.
+[Documentation](https://brokenlinc.github.io/gifloopcoder/) and [app demo](http://brokenlinc.github.io/gifloopcoder/app/) are published as a VitePress site to GitHub Pages.
 
 ## Repo layout
 
@@ -116,8 +116,11 @@ see the [Embed docs](docs/embed.md).
   against the production build via `pnpm preview`.
 - GitHub Actions runs lint, typecheck, unit tests, builds, and Playwright on
   every push / PR (`.github/workflows/ci.yml`).
-- A separate workflow rebuilds and deploys the VitePress docs to GitHub Pages
-  whenever `docs/**` changes (`.github/workflows/deploy-docs.yml`).
+- A separate workflow builds and deploys the VitePress docs **and** the studio
+  app to GitHub Pages as a single site whenever `docs/**`, `packages/app/**`,
+  or `packages/engine/**` changes (`.github/workflows/deploy-pages.yml`):
+  - Docs are served at the site root (`/gifloopcoder/`).
+  - The studio app is served at `/gifloopcoder/app/`.
 
 ## Migration notes (vs. the original 1.x layout)
 

@@ -12,7 +12,7 @@ GLC is split into two pieces:
 - **`@glc/app`** — a Vite + React 18 + Chakra UI 2 "studio" that wraps the
   engine with a CodeMirror editor, scrubber, and export modals.
 
-Documentation is published as a VitePress site to GitHub Pages.
+[Documentation](https://brokenlinc.github.io/gifloopcoder/) is published as a VitePress site to GitHub Pages.
 
 ## Repo layout
 

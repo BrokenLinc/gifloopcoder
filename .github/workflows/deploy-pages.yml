@@ -1,11 +1,13 @@
-name: Deploy Docs
+name: Deploy Pages
 
 on:
   push:
     branches: [master, main]
     paths:
       - 'docs/**'
-      - '.github/workflows/deploy-docs.yml'
+      - 'packages/app/**'
+      - 'packages/engine/**'
+      - '.github/workflows/deploy-pages.yml'
       - 'pnpm-lock.yaml'
   workflow_dispatch:
 
@@ -14,12 +16,15 @@ permissions:
   pages: write
   id-token: write
 
+# Allow only one concurrent deployment, but don't cancel an in-progress run
+# so a queued deployment can finish.
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
   build:
+    name: Build docs + app
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -38,8 +43,22 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build engine
+        run: pnpm --filter @glc/engine build
+
+      - name: Build app
+        run: pnpm --filter @glc/app build
+
       - name: Build VitePress site
         run: pnpm --filter @glc/docs build
+
+      # Stage the final Pages site:
+      #   /            -> VitePress docs (base: '/gifloopcoder/')
+      #   /app/        -> Studio app (Vite base: './', so it works at any sub-path)
+      - name: Stage Pages site
+        run: |
+          mkdir -p docs/.vitepress/dist/app
+          cp -R packages/app/dist/. docs/.vitepress/dist/app/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -50,6 +69,7 @@ jobs:
           path: docs/.vitepress/dist
 
   deploy:
+    name: Deploy to GitHub Pages
     needs: build
     runs-on: ubuntu-latest
     environment:
